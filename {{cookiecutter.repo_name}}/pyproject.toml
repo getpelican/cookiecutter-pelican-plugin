@@ -3,6 +3,7 @@ name = "{{ cookiecutter.distribution_name }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.description }}"
 license = "{{ cookiecutter.license }}"
+authors = "{{ cookiecutter.authors }}"
 readme = "{{ cookiecutter.readme }}"
 keywords = [{{ cookiecutter.keywords }}]
 
