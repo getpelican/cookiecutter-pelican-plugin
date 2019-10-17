@@ -1,1 +1,1 @@
-from .{{ cookiecutter.package_name}} include *
+from .{{ cookiecutter.package_name}} import *
