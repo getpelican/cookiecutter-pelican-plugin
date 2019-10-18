@@ -1,1 +1,1 @@
-from .{{ cookiecutter.package_name}} import *
+from .{{ cookiecutter.package_name }} import *  # NOQA
