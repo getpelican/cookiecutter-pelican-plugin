@@ -1,1 +1,17 @@
 # {{ cookiecutter.plugin_name }}: A Plugin for Pelican
+
+{{ cookiecutter.description }}
+
+Installation
+------------
+
+This plugin can be installed via:
+
+    pip install {{ cookiecutter.distribution_name }}
+
+Development
+-----------
+
+Contributions are welcome and much appreciated. See [{{ cookiecutter.contributing }}][] for more information.
+
+[{{ cookiecutter.contributing }}]: {{ cookiecutter.repo_url }}/blob/master/{{ cookiecutter.contributing }}
