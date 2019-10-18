@@ -35,8 +35,11 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-{% for link_name, link_url in cookiecutter.links.items() %}"{{ link_name }}" = "{{ link_url }}"
-{% endfor %}
+"Documentation" = "https://docs.getpelican.com/"
+"Funding" = "https://donate.getpelican.com/"
+"Source" = "{{ cookiecutter.repo_url }}"
+"Tracker" = "{{ cookiecutter.repo_url }}/issues"
+
 [tool.poetry.dependencies]
 python = "{{ cookiecutter.python_version }}"
 pelican = "{{ cookiecutter.pelican_version }}"

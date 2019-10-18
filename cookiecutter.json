@@ -11,12 +11,6 @@
     "license": ["AGPL-3.0", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "MIT"],
     "repo_url": "https://github.com/pelican-plugins/{{ cookiecutter.repo_name }}",
     "dev_status": "5 - Production/Stable",
-    "links": {
-        "Documentation": "https://docs.getpelican.com/",
-        "Funding": "https://donate.getpelican.com/",
-        "Source": "{{ cookiecutter.repo_url }}",
-        "Tracker": "{{ cookiecutter.repo_url }}/issues"
-    },
     "python_version": "^3.6",
     "pelican_version": "^4.1"
 }
