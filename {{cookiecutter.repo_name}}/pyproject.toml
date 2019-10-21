@@ -6,8 +6,10 @@ authors = [{{ cookiecutter.authors }}]
 license = "{{ cookiecutter.license }}"
 readme = "{{ cookiecutter.readme }}"
 keywords = [{{ cookiecutter.keywords }}]
-
 repository = "{{ cookiecutter.repo_url }}"
+packages = [
+    { include = "pelican" },
+]
 
 classifiers = [
     "Development Status :: {{ cookiecutter.dev_status }}",
