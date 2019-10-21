@@ -16,7 +16,7 @@ Go to the [{{ cookiecutter.plugin_name }} repository][] and tap the **Fork** but
 
     git clone https://github.com/YOUR_USERNAME/{{ cookiecutter.repo_name }}.git
     cd {{ cookiecutter.repo_name }}
-    git remote add upstream {{ cookiecutter.repo_name }}.git
+    git remote add upstream {{ cookiecutter.repo_url }}.git
 
 The last two steps will install the needed dependencies and set up the project:
 
