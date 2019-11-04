@@ -40,7 +40,7 @@ def isort(c, check=False):
     check_flag = ""
     if check:
         check_flag = "-c"
-    c.run(f"{VENV}/bin/isort {check_flag} --recursive .isort.cfg {PKG_PATH}/* tasks.py")
+    c.run(f"{VENV}/bin/isort {check_flag} --recursive {PKG_PATH}/* tasks.py")
 
 
 @task
