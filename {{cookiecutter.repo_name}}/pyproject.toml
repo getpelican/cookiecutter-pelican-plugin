@@ -48,6 +48,7 @@ pelican = "{{ cookiecutter.pelican_version }}"
 markdown = {version = "^3.1.1",optional = true}
 
 [tool.poetry.dev-dependencies]
+pelican = { git = "https://github.com/getpelican/pelican.git" }
 black = {version = "^19.10b0",allows-prereleases = true}
 flake8 = "^3.7"
 flake8-black = "^0.1.0"
