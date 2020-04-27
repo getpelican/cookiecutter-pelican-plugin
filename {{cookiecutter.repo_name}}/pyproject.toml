@@ -39,7 +39,6 @@ classifiers = [
 [tool.poetry.urls]
 "Documentation" = "https://docs.getpelican.com/"
 "Funding" = "https://donate.getpelican.com/"
-"Source" = "{{ cookiecutter.repo_url }}"
 "Tracker" = "{{ cookiecutter.repo_url }}/issues"
 
 [tool.poetry.dependencies]
