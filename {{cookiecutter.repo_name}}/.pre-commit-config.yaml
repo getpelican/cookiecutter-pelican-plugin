@@ -1,7 +1,7 @@
 # See https://pre-commit.com/hooks.html for info on hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.1.0
+    rev: v3.2.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
@@ -25,6 +25,6 @@ repos:
         language_version: python3.7
 
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.2.0
+    rev: 5.4.2
     hooks:
       - id: isort
