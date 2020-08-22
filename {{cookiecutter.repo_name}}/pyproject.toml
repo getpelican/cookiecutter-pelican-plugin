@@ -39,15 +39,15 @@ classifiers = [
 
 [tool.poetry.urls]
 "Funding" = "https://donate.getpelican.com/"
-"Tracker" = "{{ cookiecutter.repo_url }}/issues"
+"Issue Tracker" = "{{ cookiecutter.repo_url }}/issues"
 
 [tool.poetry.dependencies]
 python = "{{ cookiecutter.python_version }}"
 pelican = "{{ cookiecutter.pelican_version }}"
-markdown = {version = "^3.2.2",optional = true}
+markdown = {version = "^3.2.2", optional = true}
 
 [tool.poetry.dev-dependencies]
-black = {version = "^19.10b0",allow-prereleases = true}
+black = {version = "^19.10b0", allow-prereleases = true}
 flake8 = "^3.8"
 flake8-black = "^0.1.0"
 invoke = "^1.3"
