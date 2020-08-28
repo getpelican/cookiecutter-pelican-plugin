@@ -1,4 +1,5 @@
-# {{ cookiecutter.plugin_name }}: A Plugin for Pelican
+{{ cookiecutter.plugin_name }}: A Plugin for Pelican
+====================================================
 
 [![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/{{ cookiecutter.repo_name }}/build)]({{ cookiecutter.repo_url }}/actions)
 [![PyPI Version](https://img.shields.io/pypi/v/{{ cookiecutter.distribution_name }})](https://pypi.org/project/{{ cookiecutter.distribution_name }}/)
@@ -12,6 +13,11 @@ Installation
 This plugin can be installed via:
 
     python -m pip install {{ cookiecutter.distribution_name }}
+
+Usage
+-----
+
+<<Add plugin details here>>
 
 Contributing
 ------------
