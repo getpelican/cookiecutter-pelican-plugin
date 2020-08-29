@@ -20,6 +20,12 @@ You will then be asked to fill in details about the new plugin. Default values, 
 
     cookiecutter gh:getpelican/cookiecutter-pelican-plugin plugin_name="Render Math" authors='"Jane Smith <jane@example.com>", "Jack Jones <jack@example.com>"'
 
+## Continuous Deployment
+
+The generated plugin contains a `.github/workflows/main.yml` file for continuous integration (CI) and deployment via [GitHub Actions][] and [AutoPub][] that will ensure tests pass, check code style compliance, and publish packaged distributions to PyPI when a `RELEASE.md` file is present. For the latter step to function properly, please first ask a Pelican maintainer to add the necessary tokens to the repository settings.
+
 
 [CookieCutter]: https://github.com/cookiecutter/cookiecutter
 [Pipx]: https://github.com/pipxproject/pipx
+[GitHub Actions]: https://github.com/features/actions
+[AutoPub]: https://justinmayer.com/projects/autopub/
