@@ -1,6 +1,6 @@
 # {{ cookiecutter.plugin_name }}: A Plugin for Pelican
 
-[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/{{ cookiecutter.repo_name }}/build)]({{ cookiecutter.repo_url }}/actions) [![PyPI Version](https://img.shields.io/pypi/v/{{ cookiecutter.distribution_name }})](https://pypi.org/project/{{ cookiecutter.distribution_name }}/)
+[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/{{ cookiecutter.repo_name }}/build)]({{ cookiecutter.repo_url }}/actions) [![PyPI Version](https://img.shields.io/pypi/v/{{ cookiecutter.distribution_name }})](https://pypi.org/project/{{ cookiecutter.distribution_name }}/) ![License](https://img.shields.io/pypi/l/{{ cookiecutter.distribution_name }}?color=blue)
 
 {{ cookiecutter.description }}
 
@@ -20,3 +20,8 @@ To start contributing to this plugin, review the [Contributing to Pelican][] doc
 
 [existing issues]: {{ cookiecutter.repo_url }}/issues
 [Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
+
+License
+-------
+
+This project is licensed under the {{ cookiecutter.license }} license.
