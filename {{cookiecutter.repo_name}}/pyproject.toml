@@ -53,6 +53,7 @@ markdown = ["markdown"]
 project-name = "{{ cookiecutter.plugin_name }}"
 git-username = "botpub"
 git-email = "botpub@autopub.rocks"
+append-github-contributor = true
 
 [tool.isort]
 # Maintain compatibility with Black
