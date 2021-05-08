@@ -68,7 +68,7 @@ jobs:
           poetry run pip install --upgrade pip
           poetry install
       - name: Run linters
-        run: poetry run invoke lint
+        run: poetry run invoke lint --diff
 
 
   deploy:

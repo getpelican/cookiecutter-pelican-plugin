@@ -57,10 +57,10 @@ def flake8(c):
 
 
 @task
-def lint(c):
+def lint(c, diff=False):
     """Check code style via linting tools."""
-    isort(c, check=True)
-    black(c, check=True)
+    isort(c, check=True, diff=diff)
+    black(c, check=True, diff=diff)
     flake8(c)
 
 
