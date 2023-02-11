@@ -39,8 +39,8 @@ jobs:
           key: poetry-${{ "{{" }} hashFiles('**/poetry.lock') {{ "}}" }}
 
       - name: Install dependencies
-        run: |
-          poetry env use "${{ matrix.python-version }}"
+        run:
+          poetry env use "${{ "{{" }} matrix.python-version {{ "}}" }}"
           poetry install --no-interaction
 
       - name: Run tests
