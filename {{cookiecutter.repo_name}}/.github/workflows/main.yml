@@ -57,6 +57,7 @@ jobs:
         uses: JustinBeckwith/linkinator-action@v1
         with:
           retry: true
+          linksToSkip: "https://pypi.org/project/{{ cookiecutter.distribution_name }}/"
 
       - name: Set up Python
         uses: actions/setup-python@v4
