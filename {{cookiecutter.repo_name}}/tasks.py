@@ -26,9 +26,10 @@ PTY = os.name != "nt"
 
 
 @task
-def tests(c):
-    """Run the test suite."""
-    c.run(f"{CMD_PREFIX}pytest", pty=PTY)
+def tests(c, deprecations=False):
+    """Run the test suite, optionally with `--deprecations`."""
+    deprecations_flag = "" if deprecations else "-W ignore::DeprecationWarning"
+    c.run(f"{CMD_PREFIX}pytest {deprecations_flag}", pty=PTY)
 
 
 @task
