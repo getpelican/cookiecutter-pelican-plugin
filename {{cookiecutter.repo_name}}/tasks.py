@@ -1,9 +1,12 @@
 from inspect import cleandoc
+import logging
 import os
 from pathlib import Path
 from shutil import which
 
 from invoke import task
+
+logger = logging.getLogger(__name__)
 
 PKG_NAME = "{{ cookiecutter.package_name }}"
 PKG_PATH = Path(f"pelican/plugins/{PKG_NAME}")
@@ -86,7 +89,7 @@ def setup(c):
         c.run(f"{CMD_PREFIX}python -m pip install --upgrade pip")
         c.run(f"{POETRY} install")
         precommit(c)
-        print("\nDevelopment environment should now be set up and ready!\n")
+        logger.info("\nDevelopment environment should now be set up and ready!\n")
     else:
         error_message = """
             Poetry is not installed, and there is no active virtual environment available.
