@@ -22,7 +22,7 @@ TOOLS = ("poetry", "pre-commit")
 POETRY = which("poetry") if which("poetry") else (VENV_BIN / "poetry")
 CMD_PREFIX = f"{VENV_BIN}/" if ACTIVE_VENV else f"{POETRY} run "
 PRECOMMIT = which("pre-commit") if which("pre-commit") else f"{CMD_PREFIX}pre-commit"
-PTY = True if os.name != "nt" else False
+PTY = os.name != "nt"
 
 
 @task
