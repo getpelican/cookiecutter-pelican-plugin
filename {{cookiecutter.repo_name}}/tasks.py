@@ -2,7 +2,6 @@ from inspect import cleandoc
 import os
 from pathlib import Path
 from shutil import which
-import sys
 
 from invoke import task
 
@@ -98,4 +97,4 @@ def setup(c):
 
             Once you have taken one of the above two steps, run `invoke setup` again.
             """  # noqa: E501
-        sys.exit(cleandoc(error_message))
+        raise SystemExit(cleandoc(error_message))
