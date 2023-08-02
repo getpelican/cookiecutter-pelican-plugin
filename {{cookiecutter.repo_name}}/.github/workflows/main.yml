@@ -16,23 +16,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Poetry
-        run: pipx install poetry
-
-      - name: Set up Python ${{ "{{" }} matrix.python-version {{ "}}" }}
-        uses: actions/setup-python@v4
+      - name: Set up Python ${{ "{{" }} matrix.python-version {{ "}}" }} & PDM
+        uses: pdm-project/setup-pdm@v3
         with:
           python-version: ${{ "{{" }} matrix.python-version {{ "}}" }}
-          cache: "poetry"
-          cache-dependency-path: "pyproject.toml"
+          cache: true
+          cache-dependency-path: ./pyproject.toml
 
       - name: Install dependencies
-        run: |
-          poetry env use "${{ "{{" }} matrix.python-version {{ "}}" }}"
-          poetry install --no-interaction
+        run: pdm install
 
       - name: Run tests
-        run: poetry run invoke tests
+        run: pdm run invoke tests
 
   lint:
     name: Lint
@@ -47,23 +42,18 @@ jobs:
           retry: true
           linksToSkip: "https://pypi.org/project/{{ cookiecutter.distribution_name }}/"
 
-      - name: Install Poetry
-        run: pipx install poetry
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Python & PDM
+        uses: pdm-project/setup-pdm@v3
         with:
-          python-version: "3.9"
-          cache: "poetry"
-          cache-dependency-path: "pyproject.toml"
+          python-version: "3.10"
+          cache: true
+          cache-dependency-path: ./pyproject.toml
 
       - name: Install dependencies
-        run: |
-          poetry env use "3.9"
-          poetry install --no-interaction
+        run: pdm install
 
       - name: Run linters
-        run: poetry run invoke lint --diff
+        run: pdm run invoke lint --diff
 
   deploy:
     name: Deploy
@@ -72,29 +62,36 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref=='refs/heads/main' && github.event_name!='pull_request'
 
+    permissions:
+      contents: write
+      id-token: write
+
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ "{{" }} secrets.GH_TOKEN {{ "}}" }}
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.10"
 
       - name: Check release
         id: check_release
         run: |
-          python -m pip install poetry githubrelease httpx==0.18.2 autopub
-          echo "release=$(autopub check)" >> $GITHUB_OUTPUT
+          python -m pip install autopub[github]
+          autopub check
 
       - name: Publish
-        if: ${{ "{{" }} steps.check_release.outputs.release=='' {{ "}}" }}
+        if: ${{ "{{" }} steps.check_release.outputs.autopub_release=='true' {{ "}}" }}
         env:
           GITHUB_TOKEN: ${{ "{{" }} secrets.GH_TOKEN {{ "}}" }}
-          PYPI_PASSWORD: ${{ "{{" }} secrets.PYPI_PASSWORD {{ "}}" }}
         run: |
-          git remote set-url origin https://$GITHUB_TOKEN@github.com/${{ "{{" }} github.repository {{ "}}" }}
           autopub prepare
-          poetry build
           autopub commit
+          autopub build
           autopub githubrelease
-          poetry publish -u __token__ -p $PYPI_PASSWORD
+
+      - name: Upload package to PyPI
+        if: ${{ "{{" }} steps.check_release.outputs.autopub_release=='true' {{ "}}" }}
+        uses: pypa/gh-action-pypi-publish@release/v1

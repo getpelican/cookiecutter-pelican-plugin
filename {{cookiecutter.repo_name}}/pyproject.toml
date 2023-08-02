@@ -1,50 +1,52 @@
-[tool.poetry]
+[project]
 name = "{{ cookiecutter.distribution_name }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.description }}"
 authors = [{{ cookiecutter.authors }}]
-license = "{{ cookiecutter.license }}"
+license = {text = "{{ cookiecutter.license }}"}
 readme = "{{ cookiecutter.readme }}"
 keywords = [{{ cookiecutter.keywords }}]
-repository = "{{ cookiecutter.repo_url }}"
-documentation = "https://docs.getpelican.com"
-packages = [
-    { include = "pelican" },
-]
-
 classifiers = [
     "Development Status :: {{ cookiecutter.dev_status }}",
     "Environment :: Console",
     "Framework :: Pelican",
     "Framework :: Pelican :: Plugins",
     "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: {{ cookiecutter.license }} License",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+requires-python = "{{ cookiecutter.python_version }}"
+dependencies = [
+    "pelican{{ cookiecutter.pelican_version }}",
+]
 
-[tool.poetry.urls]
-"Funding" = "https://donate.getpelican.com/"
+[project.urls]
+Homepage = "{{ cookiecutter.repo_url }}"
 "Issue Tracker" = "{{ cookiecutter.repo_url }}/issues"
+"Funding" = "https://donate.getpelican.com/"
 
-[tool.poetry.dependencies]
-python = "{{ cookiecutter.python_version }}"
-pelican = "{{ cookiecutter.pelican_version }}"
-markdown = {version = ">=3.2", optional = true}
+[project.optional-dependencies]
+markdown = ["markdown>=3.4"]
 
-[tool.poetry.group.dev.dependencies]
-black = "^23"
-invoke = "^2.0"
-markdown = "^3.4"
-ruff = ">=0.0.272"
-
-[tool.poetry.group.test.dependencies]
-pytest = "^7.0"
-pytest-cov = "^4.0"
-pytest-sugar = "^0.9"
-
-[tool.poetry.extras]
-markdown = ["markdown"]
+[tool.pdm.dev-dependencies]
+lint = [
+    "black>=23.7.0",
+    "invoke>=2.2.0",
+    "ruff>=0.0.280",
+]
+test = [
+    "markdown>=3.4",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-sugar>=0.9.7",
+]
 
 [tool.autopub]
 project-name = "{{ cookiecutter.plugin_name }}"
@@ -92,5 +94,5 @@ force-sort-within-sections = true
 known-first-party = ["pelican"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
