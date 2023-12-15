@@ -92,5 +92,5 @@ force-sort-within-sections = true
 known-first-party = ["pelican"]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
