@@ -85,8 +85,6 @@ ignore = [
   "D213",    # multi-line docstring summary should start at the second line
 ]
 
-target-version = "py38"
-
 [tool.ruff.isort]
 combine-as-imports = true
 force-sort-within-sections = true
