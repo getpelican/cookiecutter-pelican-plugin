@@ -36,10 +36,12 @@ Funding = "https://donate.getpelican.com/"
 [project.optional-dependencies]
 markdown = ["markdown>=3.4"]
 
+[tool.pdm]
+
 [tool.pdm.dev-dependencies]
 lint = [
     "invoke>=2.2.0",
-    "ruff>=0.1.8",
+    "ruff>=0.1.0",
 ]
 test = [
     "markdown>=3.4",
@@ -47,6 +49,14 @@ test = [
     "pytest-cov>=4.0",
     "pytest-sugar>=0.9.7",
 ]
+
+[tool.pdm.build]
+source-includes = [
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+]
+includes = ["pelican/"]
+excludes = ["**/test_data/**", "tasks.py"]
 
 [tool.autopub]
 project-name = "{{ cookiecutter.plugin_name }}"
