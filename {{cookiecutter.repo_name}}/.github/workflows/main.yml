@@ -7,14 +7,14 @@ env:
 
 jobs:
   test:
-    name: Test - ${{ "{{" }} matrix.python-version {{ "}}" }}
+    name: Test - Python ${{ "{{" }} matrix.python-version {{ "}}" }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python ${{ "{{" }} matrix.python-version {{ "}}" }} & PDM
         uses: pdm-project/setup-pdm@v3
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Validate links in Markdown files
         uses: JustinBeckwith/linkinator-action@v1
@@ -67,12 +67,12 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ "{{" }} secrets.GH_TOKEN {{ "}}" }}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
