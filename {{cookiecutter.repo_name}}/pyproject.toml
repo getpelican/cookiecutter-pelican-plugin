@@ -41,7 +41,7 @@ markdown = ["markdown>=3.4"]
 [tool.pdm.dev-dependencies]
 lint = [
     "invoke>=2.2",
-    "ruff>=0.3",
+    "ruff>=0.3.7,<0.4.0"
 ]
 test = [
     "markdown>=3.4",
@@ -56,7 +56,7 @@ source-includes = [
     "CONTRIBUTING.md",
 ]
 includes = ["pelican/"]
-excludes = ["**/test_data/**", "tasks.py"]
+excludes = ["**/.DS_Store", "**/test_data/**", "tasks.py"]
 
 [tool.autopub]
 project-name = "{{ cookiecutter.plugin_name }}"
