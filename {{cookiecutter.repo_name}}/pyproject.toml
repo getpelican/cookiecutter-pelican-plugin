@@ -3,7 +3,7 @@ name = "{{ cookiecutter.distribution_name }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.description }}"
 authors = [{{ cookiecutter.authors }}]
-license = {text = "{{ cookiecutter.license }}"}
+license = {text = "{{ cookiecutter.license.split('|')[1] }}"}
 readme = "{{ cookiecutter.readme }}"
 keywords = [{{ cookiecutter.keywords }}]
 classifiers = [
@@ -12,7 +12,7 @@ classifiers = [
     "Framework :: Pelican",
     "Framework :: Pelican :: Plugins",
     "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: {{ cookiecutter.license }}",
+    "License :: OSI Approved :: {{ cookiecutter.license.split('|')[0] }}",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",

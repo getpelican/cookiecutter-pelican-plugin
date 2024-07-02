@@ -35,4 +35,4 @@ To start contributing to this plugin, review the [Contributing to Pelican][] doc
 License
 -------
 
-This project is licensed under the {{ cookiecutter.license }} license.
+This project is licensed under the {{ cookiecutter.license.split('|')[1] }} license.
