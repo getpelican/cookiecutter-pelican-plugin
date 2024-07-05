@@ -94,6 +94,7 @@ ignore = [
   "D104",    # missing docstring in public package
   "D203",    # blank line before class docstring
   "D213",    # multi-line docstring summary should start at the second line
+  "ISC001",  # disabled so `ruff format` works without warning
 ]
 
 [tool.ruff.lint.isort]
