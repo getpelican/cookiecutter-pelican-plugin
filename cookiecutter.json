@@ -9,7 +9,7 @@
     "keywords": "\"pelican\", \"plugin\"",
     "readme": "README.md",
     "contributing": "CONTRIBUTING.md",
-    "license": ["GNU Affero General Public License v3|AGPL-3.0", "Apache Software License|Apache-2.0", "BSD License|BSD-3-Clause", "MIT License|MIT"],
+    "license": ["GNU Affero General Public License v3|AGPL-3.0", "GNU General Public License v3|GPL-3.0-only", "Apache Software License|Apache-2.0", "BSD License|BSD-3-Clause", "MIT License|MIT"],
     "repo_url": "https://github.com/pelican-plugins/{{ cookiecutter.repo_name }}",
     "dev_status": ["1 - Planning", "2 - Pre-Alpha", "3 - Alpha", "4 - Beta", "5 - Production/Stable", "6 - Mature"],
     "tests_exist": [true, false],
