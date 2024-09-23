@@ -40,7 +40,6 @@ Preparation:
 
     cd ~/Projects/pelican-plugins/[PLUGIN-NAME]
     git pull origin main
-    vf tmp
     pdm update
     inv tests
     inv lint
