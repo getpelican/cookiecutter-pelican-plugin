@@ -10,7 +10,7 @@ This project’s purpose is to make it easy to create new Pelican plugins via a 
 
 The latter option downloads and runs Cruft in a temporary environment. This is useful if you want to occasionally run Cruft but don’t need it frequently enough to install it on your computer.
 
-## Usage
+## Generate New Plugin from Template
 
 To create a new Pelican plugin in the current working directory, enter the following command in your terminal console:
 
@@ -20,9 +20,50 @@ You will then be asked to fill in details about the new plugin. Many of the defa
 
     cruft create https://github.com/getpelican/cookiecutter-pelican-plugin --extra-context '{"plugin_name": "Render Math"}'
 
-## Continuous Deployment
+### Continuous Deployment
 
 The generated plugin contains a `.github/workflows/main.yml` file for continuous integration (CI) and deployment via [GitHub Actions][] and [AutoPub][] that will ensure tests pass, check code style compliance, and publish packaged distributions to PyPI when a `RELEASE.md` file is present. For the latter step to function properly, please first ask a Pelican maintainer to make the necessary “Trusted Publisher” changes in PyPI settings.
+
+## Add Cruft to Existing Project
+
+1. Ensure plugin template is up-to-date (linter versions, etc.). Commit and push any changes to the template repo.
+1. Run `cruft create https://github.com/getpelican/cookiecutter-pelican-plugin` to create a new project with the same name as the existing project.
+1. Enter the requested information when prompted, copy+pasting relevant info from the existing project.
+1. Diff-compare generated template to existing project, updating as needed to bring them into alignment.
+1. Commit those manual changes to the existing project.
+1. Copy generated `.cruft.json` file to the existing project, editing as necessary to ensure it is correct.
+1. Commit and push `.cruft.json` file.
+
+## Updating Existing Project via Cruft
+
+Preparation:
+
+    cd ~/Projects/pelican-plugins/[PLUGIN-NAME]
+    git pull origin main
+    vf tmp
+    pdm update
+    inv tests
+    inv lint
+
+Check:
+
+    cruft check   # or: inv cruft --check
+
+Update:
+
+    cruft update  # or: inv cruft
+
+See if anything broke:
+
+    pdm update
+    inv tests
+    inv lint
+
+Add `.cruft.json` hash change and commit:
+
+    git add .cruft.json
+    git commit
+    git push
 
 
 [CookieCutter]: https://github.com/cookiecutter/cookiecutter
