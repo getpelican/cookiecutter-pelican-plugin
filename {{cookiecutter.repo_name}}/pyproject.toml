@@ -29,16 +29,15 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "{{ cookiecutter.repo_url }}"
+"Homepage" = "{{ cookiecutter.repo_url }}"
 "Issue Tracker" = "{{ cookiecutter.repo_url }}/issues"
-Funding = "https://donate.getpelican.com/"
+"Changelog" = "{{ cookiecutter.repo_url }}/blob/main/CHANGELOG.md"
+"Funding" = "https://donate.getpelican.com/"
 
 [project.optional-dependencies]
 markdown = ["markdown>=3.4"]
 
-[tool.pdm]
-
-[tool.pdm.dev-dependencies]
+[dependency-groups]
 lint = [
     "invoke>=2.2",
     "ruff>=0.7.2,<0.8.0",
