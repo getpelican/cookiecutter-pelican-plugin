@@ -40,7 +40,7 @@ markdown = ["markdown>=3.4"]
 [dependency-groups]
 lint = [
     "invoke>=2.2",
-    "ruff>=0.9.0,<1.0.0",
+    "ruff>=0.9.1,<1.0.0",
 ]
 test = [
     "markdown>=3.4",
