@@ -46,11 +46,11 @@ Preparation:
 
 Check:
 
-    cruft check   # or: inv cruft --check
+    cruft check   # or: invoke update --check
 
 Update:
 
-    cruft update  # or: inv cruft
+    cruft update  # or: invoke update
 
 See if anything broke:
 
@@ -61,7 +61,7 @@ See if anything broke:
 Add `.cruft.json` hash change and commit:
 
     git add .cruft.json
-    git commit
+    git commit -m "chore: Apply upstream template changes via Cruft"
     git push
 
 
