@@ -13,6 +13,6 @@
     "repo_url": "https://github.com/pelican-plugins/{{ cookiecutter.repo_name }}",
     "dev_status": ["1 - Planning", "2 - Pre-Alpha", "3 - Alpha", "4 - Beta", "5 - Production/Stable", "6 - Mature"],
     "tests_exist": [true, false],
-    "python_version": "~=3.9",
+    "python_version": ">=3.9",
     "pelican_version": ">=4.5"
 }
